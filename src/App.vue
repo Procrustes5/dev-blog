@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue' 
+import { ref, onMounted } from 'vue'
 import { supabase } from '../utils/supabase'
 const countries = ref([])
 
@@ -17,18 +17,17 @@ onMounted(() => {
   <div class="container">
     <div class="header">
       <div class="header-left">
-          <span class="title">Developer blog</span>
+        <span class="title">Developer blog</span>
       </div>
-      <div class="header-right">
-        menu
-      </div>  
+      <div class="header-right">menu</div>
     </div>
     <router-view />
     <div class="footer">Sundial Games</div>
   </div>
 </template>
 <style scoped lang="scss">
-span, p {
+span,
+p {
   color: black;
 }
 .container {
