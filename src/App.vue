@@ -11,15 +11,6 @@ async function getCountries() {
 onMounted(() => {
   getCountries()
 })
-
-const mockFeeds = [
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" },
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" },
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" },
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" },
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" },
-  { title: "신기능 개발", category: "개발", content: "안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고" }
-];
 </script>
 
 <template>
@@ -32,23 +23,7 @@ const mockFeeds = [
         menu
       </div>  
     </div>
-    <div class="body">
-      <div class="body-header">
-          <span>안녕하세요. 개발자 블로그입니다.</span>
-      </div> 
-      <div class="blog-feed-wrapper">
-        <span class="blog-feed-title">피드</span>
-        <div v-for="(item, index) in mockFeeds" :key="index" class="blog-feed">
-          <div class="feed-header">
-            <span class="title">{{ `제목: ${item.title}` }}</span>
-            <span class="category">{{ `카테고리: ${item.category}` }}</span>
-          </div>
-          <div class="feed-body">
-            <p>{{ item.content }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <router-view />
     <div class="footer">Sundial Games</div>
   </div>
 </template>
@@ -127,7 +102,4 @@ span, p {
     color: black;
   }
 }
-
-
-
 </style>
