@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { supabase } from '../utils/supabase'
-// const countries = ref([])
-
-// async function getCountries() {
-//   const { data } = await supabase.from('countries').select()
-//   countries.value = data
-// }
-
-// onMounted(() => {
-//   getCountries()
-// })
 </script>
 
 <template>
@@ -19,10 +9,9 @@ import { supabase } from '../utils/supabase'
       <div class="header-left">
         <span class="title">Developer blog</span>
       </div>
-      <div class="header-right">menu</div>
+      <div class="header-right"></div>
     </div>
     <router-view />
-    <div class="footer">Sundial Games</div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -32,7 +21,9 @@ p {
 }
 .container {
   display: flex;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   flex-direction: column;
   overflow-y: auto;
   .header {
@@ -41,7 +32,7 @@ p {
     align-items: center;
     width: 100%;
     height: 70px;
-    background: lightcoral;
+    background: blueviolet;
     padding: 0px 14px;
     .header-left {
       .title {
@@ -50,15 +41,6 @@ p {
         color: whitesmoke;
       }
     }
-  }
-  .footer {
-    width: 100%;
-    height: 60px;
-    background: lightgreen;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
   }
 }
 </style>

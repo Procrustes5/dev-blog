@@ -1,66 +1,29 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { supabase } from '../../utils/supabase';
+import { MdEditor } from 'md-editor-v3';
+import 'md-editor-v3/lib/style.css';
 
-const user = ref()
+const text = ref<string>('');
+
 const handleLogin = async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google'
   })
 }
-    
-const mockFeeds = [
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  },
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  },
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  },
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  },
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  },
-  {
-    title: '신기능 개발',
-    category: '개발',
-    content:
-      '안녕하세요. 오늘은 어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고어쩌고저쩌고'
-  }
-]
+
 </script>
 
 <template>
   <div class="body">
-    <div>
-      <button @click="handleLogin">Login with Google</button>
-    </div>
-    <span>{{ user }}</span>
     <div class="body-header">
       <span>안녕하세요. 개발자 블로그입니다.</span>
     </div>
+    <span>작성</span>
+    <MdEditor v-model="text" language="en-US"/>
     <div class="blog-feed-wrapper">
       <span class="blog-feed-title">피드</span>
-      <div v-for="(item, index) in mockFeeds" :key="index" class="blog-feed">
+      <div v-for="(item, index) in feeds" :key="index" class="blog-feed">
         <div class="feed-header">
           <span class="title">{{ `제목: ${item.title}` }}</span>
           <span class="category">{{ `카테고리: ${item.category}` }}</span>
@@ -70,6 +33,7 @@ const mockFeeds = [
         </div>
       </div>
     </div>
+    <div class="spacing"></div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -83,6 +47,7 @@ p {
   height: 100%;
   background: white;
   padding: 20px 100px;
+  margin-bottom: 20px;
   .body-header {
     margin-bottom: 20px;
     span {
@@ -94,9 +59,10 @@ p {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 4px solid grey;
+    border: 1px solid grey;
     border-radius: 4px;
     padding: 12px;
+    margin: 16px 0px;
     .blog-feed-title {
       color: rgba($color: #000000, $alpha: 0.8);
       font-size: 20px;
@@ -116,6 +82,9 @@ p {
         }
       }
     }
+  }
+  .spacing {
+    height: 30px;
   }
 }
 </style>
