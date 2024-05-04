@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { supabase } from '../../utils/supabase';
+
+const user = ref()
+const handleLogin = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google'
+  })
+}
+    
 const mockFeeds = [
   {
     title: '신기능 개발',
@@ -41,6 +51,10 @@ const mockFeeds = [
 
 <template>
   <div class="body">
+    <div>
+      <button @click="handleLogin">Login with Google</button>
+    </div>
+    <span>{{ user }}</span>
     <div class="body-header">
       <span>안녕하세요. 개발자 블로그입니다.</span>
     </div>

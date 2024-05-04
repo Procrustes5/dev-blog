@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { supabase } from '../utils/supabase'
-const countries = ref([])
+// const countries = ref([])
 
-async function getCountries() {
-  const { data } = await supabase.from('countries').select()
-  countries.value = data
-}
+// async function getCountries() {
+//   const { data } = await supabase.from('countries').select()
+//   countries.value = data
+// }
 
-onMounted(() => {
-  getCountries()
-})
+// onMounted(() => {
+//   getCountries()
+// })
 </script>
 
 <template>
