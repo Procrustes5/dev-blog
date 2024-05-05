@@ -3,20 +3,8 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../../utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
-import type { UUID } from 'crypto'
-
-interface Feed {
-  category_id: number
-  content: string
-  title: string
-  user_id: UUID
-}
-
-interface Category {
-  id: number
-  name: string
-  parent_category: number | null
-}
+import type { Feed, Category } from '../resources/model';
+import { ElNotification } from 'element-plus'
 
 const text = ref<string>('')
 const titleRef = ref<string>('')
@@ -52,6 +40,17 @@ const handleSubmit = async (): Promise<void> => {
       }
     ])
     .select()
+  if (error) {
+    ElNotification({
+      type: 'error',
+      message: '피드 작성에 실패했습니다.'
+    })
+  } else {
+    ElNotification({
+      type: 'success',
+      message: '피드가 작성되었습니다.'
+    })
+  }
 }
 
 const handleLogin = async (): Promise<void> => {
