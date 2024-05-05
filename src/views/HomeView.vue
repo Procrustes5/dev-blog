@@ -63,7 +63,7 @@ const handleLogin = async (): Promise<void> => {
 const getCategoryNameById = (category_id: number): string => {
   const getCategoriesById = categories.value?.filter((category) => category.id === category_id)[0]
   const category_name = getCategoriesById?.name
-  return category_name ?? '';
+  return category_name ?? ''
 }
 
 onMounted(() => {
