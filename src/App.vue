@@ -31,9 +31,9 @@ p {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 70px;
+    height: 80px;
     background: blueviolet;
-    padding: 0px 14px;
+    padding: 10px 14px;
     .header-left {
       .title {
         font-size: 20px;

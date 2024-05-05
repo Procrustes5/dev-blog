@@ -14,8 +14,12 @@ a,
   transition: 0.4s;
   padding: 3px;
 }
-span, div {
+span,
+div {
   color: black;
+}
+input:focus {
+  outline: none;
 }
 
 @media (hover: hover) {
