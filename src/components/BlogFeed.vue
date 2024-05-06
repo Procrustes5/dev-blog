@@ -57,6 +57,7 @@ const getCategoryNameById = (category_id: number): string => {
     box-shadow: 0px 0px 2px #a0a0a0;
     margin: 4px 0px;
     padding: 12px;
+    cursor: pointer;
     .feed-container {
       display: flex;
       .title {
