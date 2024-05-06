@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { supabase } from '../../utils/supabase'
+import { supabase } from '/utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 import type { Feed, Category } from '../resources/model';
