@@ -60,7 +60,12 @@ const handleSubmit = async (): Promise<void> => {
     </div>
     <MdEditor v-model="textRef" language="en-US" />
     <div class="btn-wrapper">
-      <div class="submit-btn" @click="handleSubmit">Submit</div>
+      <div class="submit-btn" 
+        @click="handleSubmit"
+        :class="{ disabled: !textRef || !titleRef || !category_id }"
+      >
+        Submit
+      </div>
     </div>
   </div>
 </template>
@@ -102,6 +107,10 @@ const handleSubmit = async (): Promise<void> => {
     color: white;
     font-weight: 600;
     cursor: pointer;
+  }
+  .disabled {
+    background: grey;
+    pointer-events : none;
   }
 }
 </style>

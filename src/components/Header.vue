@@ -27,7 +27,6 @@ const handleClick = (): void => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 80px;
   background: blueviolet;
   padding: 10px 14px;
   .header-left {

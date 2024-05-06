@@ -57,45 +57,6 @@ onMounted(() => {
       font-size: 18px;
     }
   }
-  .post-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    .title-form {
-      margin: 8px 0px;
-      width: 100%;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      span {
-        font-size: 18px;
-      }
-      .title {
-        width: 100%;
-        border: 1px solid #e6e6e6;
-        border-radius: 4px;
-        height: 32px;
-        padding: 4px 8px;
-      }
-    }
-  }
-  .btn-wrapper {
-    display: flex;
-    justify-content: end;
-    margin-top: 12px;
-    .submit-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100px;
-      height: 40px;
-      background: blueviolet;
-      border-radius: 4px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-    }
-  }
   .spacing {
     height: 30px;
   }
