@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BlogFeed: typeof import('./src/components/BlogFeed.vue')['default']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     Header: typeof import('./src/components/Header.vue')['default']
