@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import router from '../router/index'
 import { supabase } from '../../utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
@@ -97,13 +98,10 @@ onMounted(() => {
     </div>
     <div class="blog-feed-wrapper">
       <span class="blog-feed-title">Feed</span>
-      <div v-for="(item, index) in feeds" :key="index" class="blog-feed">
-        <div class="feed-header">
-          <span class="title">{{ `Title: ${item.title}` }}</span>
-          <span class="category">{{ `Category: ${getCategoryNameById(item.category_id)}` }}</span>
-        </div>
-        <div class="feed-body">
-          <p>{{ item.content }}</p>
+      <div class="blog-feed" v-for="(item, index) in feeds" :key="index" @click="router.push('/feed')">
+        <div class="feed-container">
+          <span class="title">{{ item.title }}</span>
+          <span class="category">{{ getCategoryNameById(item.category_id) }}</span>
         </div>
       </div>
     </div>
@@ -180,18 +178,30 @@ p {
       color: rgba($color: #000000, $alpha: 0.8);
       font-size: 20px;
       border-bottom: solid 1px #e6e6e6;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .feed-index {
+      width: 100%;
+      display: flex;
+      padding: 0px 12px;
+      .title {
+        min-width: 200px;
+        margin-right: 12px;
+      }
     }
     .blog-feed {
       width: 100%;
       box-shadow: 0px 0px 2px #a0a0a0;
-      margin: 8px 0px;
-      padding: 16px 12px;
-      .feed-header {
+      margin: 4px 0px;
+      padding: 12px;
+      .feed-container {
         display: flex;
-        margin-bottom: 8px;
         .title {
+          min-width: 200px;
           margin-right: 12px;
+        }
+        .category {
+          
         }
       }
     }
