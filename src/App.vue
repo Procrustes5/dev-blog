@@ -11,10 +11,6 @@ import Header from '@/components/Header.vue'
   </div>
 </template>
 <style scoped lang="scss">
-span,
-p {
-  color: black;
-}
 .container {
   display: flex;
   width: 100%;
