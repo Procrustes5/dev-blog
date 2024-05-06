@@ -3,14 +3,10 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '/utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
-import type { Feed, Category } from '../resources/model';
+import type { Feed, Category } from '../resources/model'
 import { ElNotification } from 'element-plus'
 
-
-
-onMounted(() => {
-
-})
+onMounted(() => {})
 </script>
 
 <template>
@@ -19,12 +15,8 @@ onMounted(() => {
       <span>title</span>
     </div>
     <div class="detail-body">
-      <div class="detail-body-main">
-        
-      </div>
-      <div class="detail-navbar">
-
-      </div>
+      <div class="detail-body-main"></div>
+      <div class="detail-navbar"></div>
     </div>
   </div>
 </template>

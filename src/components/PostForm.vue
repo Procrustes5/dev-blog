@@ -4,13 +4,13 @@ import { supabase } from '../../utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import { storeToRefs } from 'pinia'
 import 'md-editor-v3/lib/style.css'
-import type { Feed, Category } from '../resources/model';
+import type { Feed, Category } from '../resources/model'
 import { ElNotification } from 'element-plus'
-import { useSessionStore } from '@/stores/sessionStore';
+import { useSessionStore } from '@/stores/sessionStore'
 
-const sessionStore = useSessionStore();
+const sessionStore = useSessionStore()
 
-const { current_user } = storeToRefs(sessionStore);
+const { current_user } = storeToRefs(sessionStore)
 
 const textRef = ref<string>('')
 const titleRef = ref<string>('')
@@ -48,19 +48,15 @@ const handleSubmit = async (): Promise<void> => {
   <div class="post-form">
     <div class="title-form">
       <el-select v-model="category_id" clearable placeholder="Category" style="width: 240px">
-        <el-option
-          v-for="item in categories"
-          :key="item.id"
-          :label="item.name"
-          :value="item.id"
-        />
+        <el-option v-for="item in categories" :key="item.id" :label="item.name" :value="item.id" />
       </el-select>
       <span>Title</span>
       <input type="text" class="title" v-model="titleRef" />
     </div>
     <MdEditor v-model="textRef" language="en-US" />
     <div class="btn-wrapper">
-      <div class="submit-btn" 
+      <div
+        class="submit-btn"
         @click="handleSubmit"
         :class="{ disabled: !textRef || !titleRef || !category_id }"
       >
@@ -110,7 +106,7 @@ const handleSubmit = async (): Promise<void> => {
   }
   .disabled {
     background: grey;
-    pointer-events : none;
+    pointer-events: none;
   }
 }
 </style>

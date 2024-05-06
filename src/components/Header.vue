@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
 const handleClick = (): void => {
   if (route.name === 'home') {
-    router.go(0);
+    router.go(0)
   } else {
-    router.push('/');
+    router.push('/')
   }
 }
 </script>

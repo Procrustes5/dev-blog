@@ -3,11 +3,11 @@ import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { supabase } from '/utils/supabase'
 import Header from '@/components/Header.vue'
-import { useSessionStore } from './stores/sessionStore';
+import { useSessionStore } from './stores/sessionStore'
 
-const sessionStore = useSessionStore();
+const sessionStore = useSessionStore()
 
-const { current_user } = storeToRefs(sessionStore);
+const { current_user } = storeToRefs(sessionStore)
 
 const getSession = async (): Promise<void> => {
   const { data } = await supabase.auth.getSession()

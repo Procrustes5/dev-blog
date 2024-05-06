@@ -3,13 +3,12 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '/utils/supabase'
 import { MdEditor } from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
-import type { Feed, Category } from '../resources/model';
+import type { Feed, Category } from '../resources/model'
 import { ElNotification } from 'element-plus'
-import BlogFeed from '@/components/BlogFeed.vue';
-import PostForm from '@/components/PostForm.vue';
+import BlogFeed from '@/components/BlogFeed.vue'
+import PostForm from '@/components/PostForm.vue'
 
 const feeds = ref<Feed[] | null>([])
-const category_id = ref<number>()
 const categories = ref<Category[] | null>([])
 
 const getCategories = async (): Promise<void> => {
@@ -18,7 +17,9 @@ const getCategories = async (): Promise<void> => {
 }
 
 const getFeeds = async (): Promise<void> => {
-  let { data } = await supabase.from('Feeds').select('category_id, content, title, user_id')
+  let { data, error } = await supabase
+    .from('Feeds')
+    .select('Categories(name), content, title, user_id')
   feeds.value = data
 }
 
@@ -40,7 +41,7 @@ onMounted(() => {
       <span>👷 블로그 개발중</span>
     </div>
     <PostForm v-model:categories="categories" />
-    <BlogFeed v-model:feeds="feeds" v-model:categories="categories" />
+    <BlogFeed v-model:feeds="feeds" />
     <div class="spacing"></div>
   </div>
 </template>

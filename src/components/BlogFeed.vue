@@ -1,27 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import type { Feed, Category } from '../resources/model';
+import type { Feed, Category } from '../resources/model'
 
-const router = useRouter();
+const router = useRouter()
 
 const feeds = defineModel<Feed[] | null>('feeds')
-const categories = defineModel<Category[] | null>('categories')
-
-const getCategoryNameById = (category_id: number): string => {
-  const getCategoriesById = categories.value?.filter((category) => category.id === category_id)[0]
-  const category_name = getCategoriesById?.name
-  return category_name ?? ''
-}
 </script>
 
 <template>
   <div class="blog-feed-wrapper">
     <span class="blog-feed-title">Feed</span>
-    <div class="blog-feed" v-for="(item, index) in feeds" :key="index" @click="router.push('/feed')">
+    <div
+      class="blog-feed"
+      v-for="(item, index) in feeds"
+      :key="index"
+      @click="router.push('/feed')"
+    >
       <div class="feed-container">
         <span class="title">{{ item.title }}</span>
-        <span class="category">{{ getCategoryNameById(item.category_id) }}</span>
+        <span class="category">{{ item.Categories.name }}</span>
       </div>
     </div>
   </div>
@@ -65,7 +63,6 @@ const getCategoryNameById = (category_id: number): string => {
         margin-right: 12px;
       }
       .category {
-        
       }
     }
   }
