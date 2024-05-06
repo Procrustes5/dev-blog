@@ -6,16 +6,30 @@ import 'md-editor-v3/lib/style.css'
 import type { Feed, Category } from '../resources/model'
 import { ElNotification } from 'element-plus'
 
-onMounted(() => {})
+const feed = ref<Feed>();
+
+const getFeedById = async (): Promise<void> => {
+  let { data, error } = await supabase
+    .from('Feeds')
+    .select('Categories(name), content, title, user_id')
+    .eq('id', 17)
+  feed.value = data[0]
+}
+
+onMounted(() => {
+  getFeedById()
+})
 </script>
 
 <template>
   <div class="detail-container">
     <div class="detail-header">
-      <span>title</span>
+      <span>{{ feed?.title }}</span>
     </div>
     <div class="detail-body">
-      <div class="detail-body-main"></div>
+      <div class="detail-body-main">
+        
+      </div>
       <div class="detail-navbar"></div>
     </div>
   </div>
