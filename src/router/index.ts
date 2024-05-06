@@ -2,9 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FeedDetailView from '../views/FeedDetailView.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+export const routes = [
     {
       path: '/',
       name: 'home',
@@ -16,6 +14,8 @@ const router = createRouter({
       component: FeedDetailView
     }
   ]
-})
 
-export default router
+export const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});

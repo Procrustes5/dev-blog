@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import router from '../router/index'
+import { useRoute, useRouter } from 'vue-router'
 import type { Feed, Category } from '../resources/model';
+
+const router = useRouter();
 
 const feeds = defineModel<Feed[] | null>('feeds')
 const categories = defineModel<Category[] | null>('categories')

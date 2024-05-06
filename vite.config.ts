@@ -13,6 +13,16 @@ export default defineConfig({
     VueDevTools(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/, /\.vue\?vue/, // .vue
+      ],
+      imports: [
+        'vue',
+        'vue-router',
+        '@vueuse/core',
+        'vue/macros',
+      ],
     }),
     Components({
       resolvers: [ElementPlusResolver()],
