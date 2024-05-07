@@ -20,7 +20,7 @@ const categories = defineModel<Category[] | null>('categories')
 
 const handleSubmit = async (): Promise<void> => {
   const { data, error } = await supabase
-    .from('Feeds')
+    .from('Feed')
     .insert([
       {
         category_id: category_id.value,

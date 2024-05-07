@@ -19,7 +19,7 @@ const feeds = defineModel<Feed[] | null>('feeds')
     >
       <div class="feed-container">
         <span class="title">{{ item.title }}</span>
-        <span class="category">{{ item.Categories.name }}</span>
+        <span class="category">{{ item.Category.name }}</span>
       </div>
     </div>
   </div>

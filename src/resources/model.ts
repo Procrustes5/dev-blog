@@ -1,7 +1,7 @@
 import type { UUID } from 'crypto'
 
 export interface Feed {
-  Categories: {
+  Category: {
     name: string
   }
   content: string

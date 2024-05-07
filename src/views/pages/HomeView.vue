@@ -12,14 +12,14 @@ const feeds = ref<Feed[] | null>([])
 const categories = ref<Category[] | null>([])
 
 const getCategories = async (): Promise<void> => {
-  let { data } = await supabase.from('Categories').select('id, name, parent_category')
+  let { data } = await supabase.from('Category').select('id, name, parent_category')
   categories.value = data
 }
 
 const getFeeds = async (): Promise<void> => {
   let { data, error } = await supabase
-    .from('Feeds')
-    .select('Categories(name), content, title, user_id')
+    .from('Feed')
+    .select('Category(name), content, title, user_id')
   feeds.value = data
 }
 

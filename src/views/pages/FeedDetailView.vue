@@ -10,8 +10,8 @@ const feed = ref<Feed>();
 
 const getFeedById = async (): Promise<void> => {
   let { data, error } = await supabase
-    .from('Feeds')
-    .select('Categories(name), content, title, user_id')
+    .from('Feed')
+    .select('Category(name), content, title, user_id')
     .eq('id', 17)
   feed.value = data[0]
 }
